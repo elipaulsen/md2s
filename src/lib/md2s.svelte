@@ -40,7 +40,6 @@
     });
 </script>
 
-<button on:click={Prism.highlightAll}>prism</button>
 <div class="markdown-body">
     {@html content}
 </div>
