@@ -1,6 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { marked } from 'marked';
+    import Prism from "prismjs";
+    import "prismjs/themes/prism.css";
     export let filename: string = '';
 
     let content: string = '';
@@ -24,19 +26,25 @@
                     return;
                 }
                 const markdown: string = await file.text();
-                content = insertVariables(marked(markdown), ['md2s', 'world']);
+                content = insertVariables(await marked(markdown), ['World', 'world']);
+                await 0;
+                Prism.highlightAll()
             } catch (error) {
                 console.error(error);
                 content = `<p>Error loading markdown file: ${filename}</p>`;
             }
         }
+        return () => {
+            console.log('Unmounted!');
+        };
     });
 </script>
 
+<button on:click={Prism.highlightAll}>prism</button>
 <div class="markdown-body">
     {@html content}
 </div>
 
-<style scoped>
+<style>
     @import 'markdown.css';
 </style>
