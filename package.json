@@ -1,6 +1,7 @@
 {
 	"name": "md2s",
 	"version": "0.0.1",
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -44,7 +45,6 @@
 	},
 	"dependencies": {
 		"marked": "^15.0.6",
-		"prismjs": "^1.29.0",
-		"svelte-markdown": "^0.4.1"
+		"prismjs": "^1.29.0"
 	}
 }
