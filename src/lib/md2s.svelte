@@ -3,7 +3,8 @@
     import { marked } from 'marked';
     import Prism from "prismjs";
     import "prismjs/themes/prism.css";
-    export let filename: string = '';
+    export let src: string = '';
+    export let variables: string[] = [];
 
     let content: string = '';
 
@@ -17,21 +18,21 @@
     }
 
     onMount(async () => {
-        if (filename) {
+        if (src) {
             try {
-                const file = await fetch(filename);
+                const file = await fetch(src);
                 if (!file.ok) {
                     console.error("Markdown file not found");
-                    content = `<p>Markdown file not found: ${filename}</p>`;
+                    content = `<p>Markdown file not found: ${src}</p>`;
                     return;
                 }
                 const markdown: string = await file.text();
-                content = insertVariables(await marked(markdown), ['World', 'world']);
+                content = insertVariables(await marked(markdown), variables);
                 await 0;
                 Prism.highlightAll()
             } catch (error) {
                 console.error(error);
-                content = `<p>Error loading markdown file: ${filename}</p>`;
+                content = `<p>Error loading markdown file: ${src}</p>`;
             }
         }
         return () => {
