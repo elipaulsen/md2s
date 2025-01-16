@@ -1,6 +1,6 @@
 {
 	"name": "md2s",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
