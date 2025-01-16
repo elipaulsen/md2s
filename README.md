@@ -45,7 +45,7 @@ Supply the component the path of the source Markdown file
 ```
 
 *view of browser with rendered component:*
-![alt text](image.png)
+![alt text](https://github.com/elipaulsen/md2s/blob/main/image.png)
 
 ### Placeholders
 
@@ -71,7 +71,7 @@ If you have stuff in your Markdown file that is dynamic you can use `{%}` as a p
 ```
 
 *view of browser with rendered component:*
-![alt text](image-1.png)
+![alt text](https://github.com/elipaulsen/md2s/blob/main/image-1.png)
 
 
 ## Creating a svelte project
